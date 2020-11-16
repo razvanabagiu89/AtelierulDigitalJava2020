@@ -12,16 +12,16 @@ public class Challenge1 {
             if (i % 5 == 0 && i % 3 == 0)
                 System.out.println("Fizz Buzz");
 
-            else if(i % 3 == 0)
+            if(i % 3 == 0)
                 System.out.println("Fizz");
 
-            else if(i % 5 == 0)
+            if(i % 5 == 0)
                 System.out.println("Buzz");
 
-            else if(i % 7 == 0)
+            if(i % 7 == 0)
                 System.out.println("Rizz");
 
-            else if(i % 11 == 0)
+            if(i % 11 == 0)
                 System.out.println("Jazz");
 
         }
