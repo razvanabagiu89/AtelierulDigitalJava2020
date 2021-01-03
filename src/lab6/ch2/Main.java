@@ -1,60 +1,21 @@
 package lab6.ch2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import static lab6.ch2.PascalTriangle.ncr;
 
 public class Main {
+    public static void main(String args[]){
 
-    public static List<Integer> merge(List<Integer> list1,
-                                      List<Integer> list2) {
+        // hardcode rows or get input from user
+        int rows = 5;
 
-        List<Integer> toReturn = new ArrayList<Integer>();
-
-        Iterator<Integer> it1 = list1.listIterator();
-        Iterator<Integer> it2 = list2.listIterator();
-
-        Integer current1;
-        Integer current2;
-
-        current1 = it1.next();
-        current2 = it2.next();
-
-        while(it1.hasNext() && it2.hasNext()) {
-
-            if(current1.compareTo(current2) < 0) {
-                toReturn.add(current1);
-                current1 = it1.next();
-            } else {
-                toReturn.add(current2);
-                current2 = it2.next();
+        for(int i = 0; i < rows; i++) {
+            for(int j = 0; j < rows - i; j++){
+                System.out.print(" ");
             }
+            for(int j = 0; j <= i; j++){
+                System.out.print(" " + ncr(i, j));
+            }
+            System.out.println();
         }
-
-        if(current1.compareTo(current2) < 0) {
-            toReturn.add(current1);
-            toReturn.add(current2);
-        } else {
-            toReturn.add(current2);
-            toReturn.add(current1);
-        }
-
-        while(it1.hasNext()) {
-            toReturn.add(it1.next());
-        }
-
-        while(it2.hasNext()) {
-            toReturn.add(it2.next());
-        }
-
-        return toReturn;
-    }
-
-    public static void main(String[] args) {
-
-        List<Integer> result = merge(Arrays.asList(1, 5, 6, 9, 13, 15, 16),
-                Arrays.asList(1, 2, 3, 11, 12, 14, 23, 24));
-        System.out.println(result);
     }
 }
