@@ -5,21 +5,21 @@ import java.util.Iterator;
 
 public class BinarySearch<T extends Comparable<T>> {
 
-    public int binarySearch(T[] arr, int first, int last, T key) {
+    public int binarySearch(T[] arr, int start, int end, T key) {
 
         try {
             if (isSorted(arr)) {
-                if (first <= last) {
-                    int mid = first + last / 2;
+                if (start <= end) {
+                    int mid = start + end / 2;
 
                     if (arr[mid] == key) {
                         return mid;
                     }
                     if (arr[mid].compareTo(key) > 0) {
-                        return binarySearch(arr, first, mid - 1, key);
+                        return binarySearch(arr, start, mid - 1, key);
                     }
                     else {
-                        return binarySearch(arr, mid + 1, last, key);
+                        return binarySearch(arr, mid + 1, end, key);
                     }
                 }
             }
