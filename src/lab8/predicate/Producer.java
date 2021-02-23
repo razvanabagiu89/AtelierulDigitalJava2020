@@ -23,6 +23,15 @@ public class Producer {
         Assert.assertFalse(p3.test(""));
         Assert.assertFalse(p3.test(null));
         Assert.assertTrue(p3.test("dsadas"));
+    }
+    @Test
+    public void predicate3(){
+        Predicate<String> p1 = s->s.length() == 4;
+        Predicate<String> p2 = s->s.startsWith("J");
+        Predicate<String> p3= p1.or(p2);
 
+        Assert.assertTrue(p3.test("True"));
+        Assert.assertTrue(p3.test("Julia"));
+        Assert.assertTrue(p3.test("Java"));
     }
 }
